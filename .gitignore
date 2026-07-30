@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.DS_Store
+*.tsbuildinfo
+.claude/
+
+# env files / secrets
+.env
+.env.*
+
+# cloud platform artifacts
+.vercel
+.netlify
+.aws
+.serverless
