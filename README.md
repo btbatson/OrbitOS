@@ -19,6 +19,9 @@ the code it was extracted from) shows up:
 - [afritel.co.ke](https://afritel.co.ke/)
 - [batsonlabs.com/blog/ai-radio](https://batsonlabs.com/blog/ai-radio): a blog post from the same site.
 
+There's also a live, interactive version of the `example/` app (toggle mode,
+colors, and background) hosted on GitHub Pages: **[live demo](https://btbatson.github.io/OrbitOS/)**.
+
 ## Why
 
 Most "3D sphere" components pull in a full WebGL stack for something that's
@@ -130,6 +133,25 @@ positions on the sphere. When one rotates to the front, it fades in a
 floating label card with simple rectangle-overlap collision detection so
 cards never stack. Rendering pauses automatically via `IntersectionObserver`
 when the globe scrolls out of view.
+
+## Hosting the example
+
+The `example/` app auto-deploys to GitHub Pages via
+[`.github/workflows/deploy-example.yml`](.github/workflows/deploy-example.yml)
+on every push to `main`. One-time setup on GitHub:
+
+1. Go to the repo's **Settings > Pages**.
+2. Under "Build and deployment", set **Source** to **GitHub Actions**.
+3. Push to `main` (or run the workflow manually from the **Actions** tab).
+
+It'll be live at `https://<your-username>.github.io/OrbitOS/`. To run it
+locally instead:
+
+```bash
+cd example
+npm install
+npm run dev
+```
 
 ## License
 
