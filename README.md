@@ -1,21 +1,34 @@
 # OrbitOS
 
-A rotating sphere of labeled points for React — render any set of skills,
+A rotating sphere of labeled points for React: render any set of skills,
 links, projects, radio stations, offices, or facts as an animated, 3D-style
 particle globe. Two modes: an abstract point-cloud **sphere**, or an actual
 **world map** with continent outlines and points plotted by real lat/lng.
 Pure HTML5 Canvas 2D, no Three.js/WebGL, no charting library.
 
+| Sphere mode | Globe mode |
+| --- | --- |
+| ![Sphere mode, mono palette, light background](./docs/orbitos-sphere-mono-light.png) | ![Globe mode, mono palette, light background](./docs/orbitos-globe-mono-light.png) |
+
+## See it in action
+
+OrbitOS grew out of the sphere on my own portfolio site. A few places it (or
+the code it was extracted from) shows up:
+
+- [batsonlabs.com](https://batsonlabs.com/): the sphere mode, front and center on the homepage hero, showing my skills.
+- [afritel.co.ke](https://afritel.co.ke/)
+- [batsonlabs.com/blog/ai-radio](https://batsonlabs.com/blog/ai-radio): a blog post from the same site.
+
 ## Why
 
 Most "3D sphere" components pull in a full WebGL stack for something that's
 really just a rotating point cloud with a few floating labels. OrbitOS does
-the projection math by hand on a plain `<canvas>` — small, dependency-free,
+the projection math by hand on a plain `<canvas>`, small, dependency-free,
 and easy to read if you want to tweak it.
 
 ## Install
 
-This isn't published to npm yet — clone it and build locally, or copy
+This isn't published to npm yet: clone it and build locally, or copy
 `src/OrbitGlobe.tsx` directly into your project.
 
 ```bash
@@ -51,7 +64,7 @@ export default function Example() {
 ### World map mode
 
 Switch `mode="globe"` and give points a real `location` instead of a `color`-only
-callout — useful for radio stations, offices, or anywhere with a real address:
+callout, useful for radio stations, offices, or anywhere with a real address:
 
 ```tsx
 const stations = [
@@ -63,14 +76,14 @@ const stations = [
 ```
 
 `OrbitGlobe` must be rendered in a client component (it uses `"use client"`
-internally, so this only matters if you're on Next.js App Router — no extra
+internally, so this only matters if you're on Next.js App Router, no extra
 setup needed).
 
 ## Props
 
 | Prop              | Type                     | Default                  | Description                                                      |
 | ------------------ | ------------------------ | ------------------------- | ------------------------------------------------------------------ |
-| `points`           | `OrbitPoint[]`           | — (required)               | The labeled callouts orbiting the sphere.                          |
+| `points`           | `OrbitPoint[]`           | (required)                | The labeled callouts orbiting the sphere.                          |
 | `mode`             | `"sphere" \| "globe"`    | `"sphere"`                 | Abstract particle sphere, or an actual world map with continents.  |
 | `centerImage`      | `string`                 | `undefined`                | Image URL shown glowing at the center (e.g. an avatar/logo).       |
 | `maxSize`          | `number`                 | `700`                      | Max pixel size; shrinks to fit its parent below this.              |
@@ -104,13 +117,13 @@ one side.
 
 **Sphere mode**: a few thousand tiny particles are distributed over a unit
 sphere (golden-angle spiral) and projected to 2D each frame with hand-written
-rotation/perspective math — no matrix library needed for a single-axis
+rotation/perspective math, no matrix library needed for a single-axis
 auto-rotate.
 
 **Globe mode**: continent outlines come from a simplified [Natural
 Earth](https://www.naturalearthdata.com/) coastline dataset (public domain,
 via `world-atlas`), embedded as plain lat/lng polylines and projected through
-the same rotation math — no map library, no tiles, no network requests.
+the same rotation math, no map library, no tiles, no network requests.
 
 In both modes, your `points` become colored dots at fixed (or real-world)
 positions on the sphere. When one rotates to the front, it fades in a
