@@ -29,19 +29,45 @@ really just a rotating point cloud with a few floating labels. OrbitOS does
 the projection math by hand on a plain `<canvas>`, small, dependency-free,
 and easy to read if you want to tweak it.
 
+## Dependencies
+
+**Runtime: zero.** `react` and `react-dom` are peer dependencies only, and
+nothing else ships in the published package, no Three.js, no charting
+library, no map library. Globe mode's continent outlines are pre-baked at
+[`src/worldOutline.ts`](src/worldOutline.ts) from the `world-atlas`
+land-110m dataset (public domain, via [Natural
+Earth](https://www.naturalearthdata.com/)) using a one-off local script
+([`scripts/build-world-outline.mjs`](scripts/build-world-outline.mjs)); that
+conversion runs once at dev time, not in your app.
+
+Everything else is dev-only tooling: [`tsup`](https://tsup.egoist.dev/) bundles
+`src/` to `dist/` (ESM + CJS + types), and TypeScript type-checks it. The
+`example/` app (the live demo) is a separate [Vite](https://vitejs.dev/) +
+React project with its own `package.json`, not part of the published
+package.
+
 ## Install
 
-This isn't published to npm yet: clone it and build locally, or copy
-`src/OrbitGlobe.tsx` directly into your project.
+```bash
+npm install orbitos
+```
+
+`react` and `react-dom` (>=18) are peer dependencies, so use whatever
+version your app already has.
+
+<details>
+<summary>Building from source instead</summary>
 
 ```bash
-git clone https://github.com/<you>/OrbitOS.git
+git clone https://github.com/btbatson/OrbitOS.git
 cd OrbitOS
 npm install
 npm run build
 ```
 
 Then link it into a project with `npm link`, or `npm install ../OrbitOS`.
+
+</details>
 
 ## Usage
 
