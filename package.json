@@ -1,6 +1,6 @@
 {
   "name": "orbitos",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A rotating sphere of labeled points for React — render any set of skills, links, projects, or facts as an animated 3D-style particle globe on plain HTML5 Canvas.",
   "type": "module",
   "repository": {
@@ -10,6 +10,10 @@
   "homepage": "https://github.com/btbatson/OrbitOS#readme",
   "bugs": {
     "url": "https://github.com/btbatson/OrbitOS/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://buymeacoffee.com/titusbatson"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

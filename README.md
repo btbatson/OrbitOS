@@ -1,5 +1,8 @@
 # OrbitOS
 
+[![npm version](https://img.shields.io/npm/v/orbitos.svg)](https://www.npmjs.com/package/orbitos)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/titusbatson)
+
 A rotating sphere of labeled points for React: render any set of skills,
 links, projects, radio stations, offices, or facts as an animated, 3D-style
 particle globe. Two modes: an abstract point-cloud **sphere**, or an actual
@@ -178,6 +181,11 @@ cd example
 npm install
 npm run dev
 ```
+
+## Support
+
+If OrbitOS is useful to you, consider [buying me a
+coffee](https://buymeacoffee.com/titusbatson).
 
 ## License
 
